@@ -19,13 +19,14 @@
 ### Why this list?
 
 Needed by the community to:
+
 - discover specimens (the dark data)
 - improve collaborations
 - identify small collections that need special attention
 
 -------
 
-### How we compîled it?
+### How we compiled it?
 
 - Index Herbariorum
 - GRBio (includes IH)
@@ -55,20 +56,11 @@ Needed by the community to:
 
 ### Comparison
 
-
-```
-## Warning in !is.na(biorep$institutionLSID) & nzchar(unique(biorep
-## $institutionLSID)): longer object length is not a multiple of shorter
-## object length
-```
-
-```
-## Error in draw.pairwise.venn(area1 = n_coll, area2 = 833 + 126, cross.area = sum(!is.na(biorep$institutionLSID) & : Impossible: cross section area too large.
-```
+![](figure/unnamed-chunk-5-1.png) 
 
 ------------
 
-### Already in <span style="text-tranform: none;">iDigBio</span>
+### Already in <span style="text-transform: none;">iDigBio</span>
 
 
 
@@ -77,12 +69,13 @@ Needed by the community to:
 
 ------------
 
-### Future directions
+### Future
 
-* Representation of collection concept in iDigBio
 * Seamless transfer of information
+
   - Common data model
   - API access
-  - example of community organization
+
+* Example of community organization
 
 ------------

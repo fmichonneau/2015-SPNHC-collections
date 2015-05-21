@@ -32,13 +32,14 @@ biorep <- read.csv(file="biorepositories.csv", stringsAsFactors=FALSE) %>%
 ### Why this list?
 
 Needed by the community to:
+
 - discover specimens (the dark data)
 - improve collaborations
 - identify small collections that need special attention
 
 -------
 
-### How we compîled it?
+### How we compiled it?
 
 - Index Herbariorum
 - GRBio (includes IH)
@@ -82,14 +83,14 @@ suppressPackageStartupMessages(library(VennDiagram))
 grid.newpage()
 draw.pairwise.venn(area1 = n_coll, area2 = 833+126, # 833 number of US institutions, 126 collections in GRBio as of 2015-05-21
                    cross.area = sum(!is.na(biorep$institutionLSID) &
-                                      nzchar(unique(biorep$institutionLSID))),
+                                      nzchar(biorep$institutionLSID)),
                    category = c("iDigBio", "GRBio"),
                    fill = c("light blue", "pink"), alpha = rep(0.5, 2))
 ```
 
 ------------
 
-### Already in <span style="text-tranform: none;">iDigBio</span>
+### Already in <span style="text-transform: none;">iDigBio</span>
 
 ```{r}
 n_idig <- sum(nzchar(biorep$participates.iDigBio))
@@ -101,12 +102,13 @@ p_idig <- (n_idig/n_coll)*100
 
 ------------
 
-### Future directions
+### Future
 
-* Representation of collection concept in iDigBio
 * Seamless transfer of information
+
   - Common data model
   - API access
-  - example of community organization
+
+* Example of community organization
 
 ------------
