@@ -26,6 +26,7 @@ biorep <- read.csv(file="biorepositories.csv", stringsAsFactors=FALSE) %>%
 ### Why this list?
 
 - Needed by <span style="text-transform: none;">iDigBio</span>
+- Requested by NSF
 
 -------
 
@@ -39,7 +40,15 @@ Needed by the community to:
 
 -------
 
-### How we compiled it?
+### Goals
+
+- Focus on collections
+- Currently active
+- Mostly natural history collections
+
+-------
+
+### Where does it come from?
 
 - Index Herbariorum
 - GRBio (includes IH)
@@ -76,7 +85,7 @@ ggplot(hist_data) + geom_bar(aes(x = type, y = size), stat="identity",  fill=wes
 
 ---------------
 
-### Comparison
+### Comparison with GRBio
 
 ```{r, fig.width=10, fig.height=6, fig.cap=''}
 suppressPackageStartupMessages(library(VennDiagram))
@@ -99,16 +108,19 @@ p_idig <- (n_idig/n_coll)*100
 
 `r n_idig` collections (`r sprintf("%.0f", p_idig)`%)
 
-
 ------------
 
 ### Future
 
 * Seamless transfer of information
 
-  - Common data model
-  - API access
+   * Common data model with other repositories
+   * API access
 
 * Example of community organization
 
 ------------
+
+### Questions?
+
+Don't forget to check your institution is listed!

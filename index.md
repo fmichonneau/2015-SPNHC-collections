@@ -13,6 +13,7 @@
 ### Why this list?
 
 - Needed by <span style="text-transform: none;">iDigBio</span>
+- Requested by NSF
 
 -------
 
@@ -26,7 +27,15 @@ Needed by the community to:
 
 -------
 
-### How we compiled it?
+### Goals
+
+- Focus on collections
+- Currently active
+- Mostly natural history collections
+
+-------
+
+### Where does it come from?
 
 - Index Herbariorum
 - GRBio (includes IH)
@@ -54,7 +63,7 @@ Needed by the community to:
 
 ---------------
 
-### Comparison
+### Comparison with GRBio
 
 ![](figure/unnamed-chunk-5-1.png) 
 
@@ -66,16 +75,19 @@ Needed by the community to:
 
 302 collections (20%)
 
-
 ------------
 
 ### Future
 
 * Seamless transfer of information
 
-  - Common data model
-  - API access
+   * Common data model with other repositories
+   * API access
 
 * Example of community organization
 
 ------------
+
+### Questions?
+
+Don't forget to check your institution is listed!
