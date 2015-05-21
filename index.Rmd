@@ -1,5 +1,6 @@
 % A list of US-based Natural History Collections
-% <small><a href="http://francoismichonneau.net">François Michonneau</a> / <a href="https://twitter/fmic_/">@fmic_</a> / <span style="text-transform: none;">iDigBio</span> <br/> Larry Page /  <span style="text-transform: none;">iDigBio</span></small>
+% <small><a href="http://francoismichonneau.net">François Michonneau</a> / <a
+% href="https://twitter/fmic_/"><span style="text-transform: none;">@fmic_</span></a> / <span style="text-transform: none;">iDigBio</span> <br/> Larry Page /  <span style="text-transform: none;">iDigBio</span></small>
 % <small>SPNHC -- May 21st, 2015</small>
 
 
@@ -24,21 +25,22 @@ biorep <- read.csv(file="biorepositories.csv", stringsAsFactors=FALSE) %>%
 
 ### Why this list?
 
-Needed by <span style="text-transform: none;">iDigBio</span>
+- Needed by <span style="text-transform: none;">iDigBio</span>
 
 -------
 
 ### Why this list?
 
 Needed by the community to:
-- discover specimens
+- discover specimens (the dark data)
 - improve collaborations
 - identify small collections that need special attention
 
 -------
 
-### List of collections
+### How we compîled it?
 
+- Index Herbariorum
 - GRBio (includes IH)
 - List of institutions/collections from various sources
 - Institution/collections websites
