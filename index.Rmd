@@ -1,0 +1,110 @@
+% A list of US-based Natural History Collections
+% <small><a href="http://francoismichonneau.net">François Michonneau</a> / <a href="https://twitter/fmic_/">@fmic_</a> / <span style="text-transform: none;">iDigBio</span> <br/> Larry Page /  <span style="text-transform: none;">iDigBio</span></small>
+% <small>SPNHC -- May 21st, 2015</small>
+
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, results="hide")
+```
+
+```{r}
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(wesanderson))
+
+wespal <- wes_palette("Zissou", 5)
+
+biorep <- read.csv(file="biorepositories.csv", stringsAsFactors=FALSE) %>%
+  filter(!verified %in% c("D", "X", "N"))
+
+
+```
+
+-------
+
+### Why this list?
+
+Needed by <span style="text-transform: none;">iDigBio</span>
+
+-------
+
+### Why this list?
+
+Needed by the community to:
+- discover specimens
+- improve collaborations
+- identify small collections that need special attention
+
+-------
+
+### List of collections
+
+- GRBio (includes IH)
+- List of institutions/collections from various sources
+- Institution/collections websites
+
+-------
+
+### Portal demonstration
+
+[iDigBio portal](https://www.idigbio.org/portal/collections)
+
+![](img/biocoll_map.png)
+
+-------
+
+### How many?
+
+```{r}
+n_inst <- length(unique(biorep$Name.of.Institution))
+n_coll <- filter(biorep, Name.of.Collection != "MAIN") %>% nrow
+n_herb <- sum(grepl("herb", biorep$Name.of.Institution, ignore.case = TRUE) |
+                grepl("<IH>$", biorep$Institutional.ID.Acronym))
+hist_data <- data.frame(type=c("Collections", "Herbaria"), size=c(n_coll, n_herb))
+```
+
+* `r n_inst` institutions
+* `r n_coll` collections (`r n_herb`, 40% being herbaria)
+
+```{r, fig.cap='', fig.height=5}
+ggplot(hist_data) + geom_bar(aes(x = type, y = size), stat="identity",  fill=wespal[c(1, 3)]) +
+  theme_bw() + ylab("Number") + xlab("") + theme(text = element_text(size = 20))
+```
+
+---------------
+
+### Comparison
+
+```{r, fig.width=10, fig.height=6, fig.cap=''}
+suppressPackageStartupMessages(library(VennDiagram))
+grid.newpage()
+draw.pairwise.venn(area1 = n_coll, area2 = 833+126, # 833 number of US institutions, 126 collections in GRBio as of 2015-05-21
+                   cross.area = sum(!is.na(biorep$institutionLSID) &
+                                      nzchar(unique(biorep$institutionLSID))),
+                   category = c("iDigBio", "GRBio"),
+                   fill = c("light blue", "pink"), alpha = rep(0.5, 2))
+```
+
+------------
+
+### Already in <span style="text-tranform: none;">iDigBio</span>
+
+```{r}
+n_idig <- sum(nzchar(biorep$participates.iDigBio))
+p_idig <- (n_idig/n_coll)*100
+```
+
+`r n_idig` collections (`r sprintf("%.0f", p_idig)`%)
+
+
+------------
+
+### Future directions
+
+* Representation of collection concept in iDigBio
+* Seamless transfer of information
+  - Common data model
+  - API access
+  - example of community organization
+
+------------
