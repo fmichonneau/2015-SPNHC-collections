@@ -56,8 +56,8 @@ Needed by the community to:
 
 
 
-* 903 institutions
-* 1538 collections (613, 40% being herbaria)
+* 1538 collections
+* including 613 (40%) herbaria
 
 ![](figure/unnamed-chunk-4-1.png) 
 

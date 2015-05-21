@@ -75,8 +75,8 @@ n_herb <- sum(grepl("herb", biorep$Name.of.Institution, ignore.case = TRUE) |
 hist_data <- data.frame(type=c("Collections", "Herbaria"), size=c(n_coll, n_herb))
 ```
 
-* `r n_inst` institutions
-* `r n_coll` collections (`r n_herb`, 40% being herbaria)
+* `r n_coll` collections
+* including `r n_herb` (40%) herbaria
 
 ```{r, fig.cap='', fig.height=5}
 ggplot(hist_data) + geom_bar(aes(x = type, y = size), stat="identity",  fill=wespal[c(1, 3)]) +
@@ -93,7 +93,8 @@ grid.newpage()
 draw.pairwise.venn(area1 = n_coll, area2 = 833+126, # 833 number of US institutions, 126 collections in GRBio as of 2015-05-21
                    cross.area = sum(!is.na(biorep$institutionLSID) &
                                       nzchar(biorep$institutionLSID)),
-                   category = c("iDigBio", "GRBio"),
+                   category = c("iDigBio", "GRBio"), fontfamily = rep("sans", 3),
+                   cex = rep(2, 3), cat.fontfamily = rep("sans", 2),
                    fill = c("light blue", "pink"), alpha = rep(0.5, 2))
 ```
 
